@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Detective</string>
+    <string name="grant_camera_permission_request">We need permission to use your camera for capturing images</string>
+    <string name="proceed">Proceed</string>
+    <string name="permission_text">Permission</string>
+</resources>
