@@ -129,7 +129,6 @@ fun CameraScreen(
 
             override fun onResults(
                 results: List<Detection>?,
-                inferenceTime: Long,
                 imageHeight: Int,
                 imageWidth: Int
             ) {

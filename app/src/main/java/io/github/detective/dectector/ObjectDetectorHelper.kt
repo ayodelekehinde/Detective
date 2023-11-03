@@ -2,7 +2,6 @@ package io.github.detective.dectector
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.os.SystemClock
 import android.util.Log
 import com.google.android.gms.tflite.client.TfLiteInitializationOptions
 import com.google.android.gms.tflite.gpu.support.TfLiteGpu
@@ -115,25 +114,13 @@ class ObjectDetectorHelper(
             setupObjectDetector()
         }
 
-        // Inference time is the difference between the system time at the start and finish of the
-        // process
-        var inferenceTime = SystemClock.uptimeMillis()
-
-        // Create preprocessor for the image.
-        // See https://www.tensorflow.org/lite/inference_with_metadata/
-        //            lite_support#imageprocessor_architecture
         val imageProcessor = ImageProcessor.Builder().add(Rot90Op(-imageRotation / 90)).build()
-
-        // Preprocess the image and convert it into a TensorImage for detection.
         val tensorImage = imageProcessor.process(TensorImage.fromBitmap(image))
-
         val results = objectDetector?.detect(tensorImage)?.filter {
             it.categories.any { category ->  category.score >= threshold }
         }
-        inferenceTime = SystemClock.uptimeMillis() - inferenceTime
         objectDetectorListener?.onResults(
             results,
-            inferenceTime,
             tensorImage.height,
             tensorImage.width)
     }
@@ -143,7 +130,6 @@ class ObjectDetectorHelper(
         fun onError(error: String)
         fun onResults(
             results: List<Detection>?,
-            inferenceTime: Long,
             imageHeight: Int,
             imageWidth: Int
         )
