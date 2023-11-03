@@ -2,16 +2,16 @@ package io.github.detective.dectector
 
 object Categorizer {
 
-    val animalNames = listOf(
+    private val animalNames = listOf(
         "dog", "cat", "elephant", "lion", "tiger", "giraffe", "bear", "panda", "dolphin", "penguin", "kangaroo",
         "koala", "zebra", "horse", "cheetah", "gorilla", "fox", "rabbit", "squirrel", "camel", "wolf", "hippopotamus", "chimpanzee", "orangutan", "octopus", "owl", "eagle", "penguin", "crocodile", "alligator"
     ).toSet()
-    val things = listOf(
+    private val things = listOf(
         "table", "chair", "tv", "phone", "bag", "car", "computer", "phone", "book", "lamp", "pen", "guitar", "shoes",
         "television", "backpack", "keyboard", "watch", "bike", "camera", "glasses", "wallet", "remote", "umbrella",
         "basket", "mirror", "scissors", "plate", "shovel", "gloves", "hat", "sunglasses", "hanger", "calculator", "spoon"
     ).toSet()
-    val plantNames = listOf(
+    private val plantNames = listOf(
         "rose", "tulip", "daisy", "sunflower", "cactus", "orchid", "bamboo", "fern", "ivy", "palm", "maple", "oak", "pine", "acacia", "eucalyptus",
         "lavender", "jasmine", "lily", "daffodil", "violet", "carnation", "hibiscus", "tulip", "moss", "thyme", "sage", "rosemary", "basil", "mint",
     ).toSet()
